@@ -1,0 +1,51 @@
+import random   # Importing the random module to generate a random number
+import time     # Importing the time module for pausing the program
+
+# Generating a random number between 1 and 100 and storing it in variable 'n'
+n = random.randrange(1, 100)
+
+# Printing a welcome message
+print("Welcome to the NUMBER GUESSING GAME\nFIVE ATTEMPTS ONLY!!")
+
+# Pausing the program for 2 seconds
+time.sleep(2)
+
+# Asking the user to enter a number and storing it in variable 'guess'
+guess = int(input("Guess a number: "))
+
+# Initializing the variable 'count' to keep track of the number of attempts
+count = 1
+
+# Starting a while loop that continues until the user guesses the correct number or exhausts 5 attempts
+while n != guess and count < 5:
+    if guess < n:
+        # Printing a message indicating that the guessed number is too low
+        print("Too low")
+        # Printing the number of attempts remaining
+        print("You have {} attempts left".format(5 - count))
+        # Asking the user to guess again and updating the 'guess' variable
+        guess = int(input("Guess Again: "))
+        # Incrementing the 'count' variable by 1
+        count += 1
+
+    elif guess > n:
+        # Printing a message indicating that the guessed number is too high
+        print("Too High")
+        # Printing the number of attempts remaining
+        print("You have {} attempts left".format(5 - count))
+        # Asking the user to guess again and updating the 'guess' variable
+        guess = int(input("Guess Again: "))
+        # Incrementing the 'count' variable by 1
+        count += 1
+
+    else:
+        # Exiting the loop if the user guesses the correct number
+        break
+
+# Checking if the user guessed the correct number
+if n == guess:
+    # Printing a message indicating that the user guessed the correct number
+    print("**You Are Right**")
+else:
+    # Printing a message indicating that the user did not guess the correct number
+    print("Bad Luck, Try Again")
